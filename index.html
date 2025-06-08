@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Надёжный выбор</title>
+    <link
+      rel="shortcut icon"
+      href="/photo_2025-06-07+17.17.37.jpeg.svg"
+      type="image/svg"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
@@ -68,8 +73,57 @@
             <h3>Modern Family Home</h3>
             <p class="price">$550,000</p>
             <p>4 Beds | 3 Baths | 2,500 sqft</p>
+            <button class="btn property-btn" onclick="openModal('modal1')">
+              View Details
+            </button>
           </div>
         </div>
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <img
+              src="https://public.youware.com/users-website-assets/prod/54c5bccf-883a-4cb5-8c1f-edf9c10dbbc4/g49d81ad8f3859bc10df016dce749ee4c87790b203f5107758216f169aa599debd2f4c233ab1dacb94d33eb0bfd1032084870f53f2e7f7aee98648d49790514f3_1280.jpg"
+              alt="Modern Family Home"
+              class="modal-image"
+            />
+            <div class="modal-details">
+              <h2>Modern Family Home</h2>
+              <p class="price">$550,000</p>
+
+              <div class="modal-features">
+                <div class="feature">
+                  <i class="fas fa-bed"></i>
+                  <p>4 Bedrooms</p>
+                </div>
+                <div class="feature">
+                  <i class="fas fa-bath"></i>
+                  <p>3 Bathrooms</p>
+                </div>
+                <div class="feature">
+                  <i class="fas fa-ruler-combined"></i>
+                  <p>2,500 sq ft</p>
+                </div>
+                <div class="feature">
+                  <i class="fas fa-car"></i>
+                  <p>2 Car Garage</p>
+                </div>
+              </div>
+
+              <h3>Property Description</h3>
+              <p class="description">
+                This beautiful modern family home offers spacious living areas
+                with an open floor plan perfect for entertaining. The gourmet
+                kitchen features high-end appliances, granite countertops, and
+                custom cabinetry. The primary bedroom suite includes a luxury
+                bathroom with dual vanities and a walk-in closet.
+              </p>
+
+              <h3>Location</h3>
+              <p>123 Maple Street, Pleasantville, Anytown</p>
+            </div>
+          </div>
+        </div>
+
         <div class="property-card">
           <img
             src="https://public.youware.com/users-website-assets/prod/54c5bccf-883a-4cb5-8c1f-edf9c10dbbc4/ga3153a517746f9c71b82bbbaceedaf00bef4307aafe14486650cb5d3d0cd3c4973cc2801613f559b27c8192a3709e8e089e9d83ff5e4ef481a022e2b9b82420a_1280.jpg"

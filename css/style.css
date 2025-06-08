@@ -279,6 +279,118 @@ footer {
 .social-media a {
   font-size: 1.2rem;
 }
+.property-btn {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+}
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 0;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+  background: rgba(255, 255, 255, 1);
+}
+
+.modal-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.modal-details {
+  padding: 30px;
+}
+
+.modal-details h2 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.modal-details .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+}
+
+.modal-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+  padding: 20px;
+  background: var(--light-color);
+  border-radius: 5px;
+}
+
+.modal-features .feature {
+  display: flex;
+  align-items: center;
+}
+
+.modal-features .feature i {
+  margin-right: 10px;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+.modal-details h3 {
+  color: var(--primary-color);
+  margin: 20px 0 10px 0;
+}
+
+.modal-details .description {
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* Additional modal styling... */
 
 @media (max-width: 768px) {
   header .nav-menu {
