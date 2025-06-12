@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-<html lang="en, ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Надёжный выбор</title>
-    <link
-      rel="shortcut icon"
-      href="/photo_2025-06-07+17.17.37.jpeg.svg"
-      type="image/svg"
-    />
-    <link rel="stylesheet" href="css/style.css" />
+    <title>PrimeEstate Realty - Your Dream Home Awaits</title>
+    <link rel="stylesheet" href="/css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -18,9 +13,12 @@
   <body>
     <header>
       <nav class="container">
-        <a href="#" class="logo">Надёжный выбор</a>
-        <ul class="nav-menu">
-          <li><a href="#featured">Featured Properties</a></li>
+        <a href="#" class="logo">PrimeEstate Realty</a>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#featured" class="active">Featured Properties</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#agents">Agents</a></li>
@@ -57,14 +55,70 @@
       <div class="hero-content">
         <h1>Your Dream Home Awaits</h1>
         <p>Find the perfect property for you.</p>
-        <a href="#featured" class="btn">View Listings</a>
+        <div class="search-container">
+          <div class="search-box">
+            <input
+              type="text"
+              id="property-search"
+              placeholder="Search by location, price, or features..."
+            />
+            <button class="search-btn" id="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <div class="advanced-search">
+            <div class="filter-row">
+              <select id="property-type">
+                <option value="">All Property Types</option>
+                <option value="house">House</option>
+                <option value="apartment">Apartment</option>
+                <option value="condo">Condo</option>
+              </select>
+              <select id="bedrooms">
+                <option value="">Any Bedrooms</option>
+                <option value="1">1+ Bed</option>
+                <option value="2">2+ Beds</option>
+                <option value="3">3+ Beds</option>
+                <option value="4">4+ Beds</option>
+              </select>
+              <select id="price-range">
+                <option value="">Any Price</option>
+                <option value="300000-400000">$300k - $400k</option>
+                <option value="400000-600000">$400k - $600k</option>
+                <option value="600000-800000">$600k - $800k</option>
+                <option value="800000-1000000">$800k+</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <a href="#featured" class="btn view-listings-btn">View All Listings</a>
       </div>
     </section>
 
-    <section id="featured" class="container">
+    <section id="featured" class="container, featured">
       <h2>Featured Properties</h2>
-      <div class="property-grid">
-        <div class="property-card">
+      <div class="property-filter">
+        <div class="filter-tags">
+          <span class="filter-tag active" data-filter="all">All</span>
+          <span class="filter-tag" data-filter="house">Houses</span>
+          <span class="filter-tag" data-filter="apartment">Apartments</span>
+          <span class="filter-tag" data-filter="featured">Featured</span>
+        </div>
+        <div class="search-results" id="search-results">
+          <button id="clear-filters" class="clear-btn">
+            <i class="fas fa-times"></i> Clear Filters
+          </button>
+        </div>
+      </div>
+      <div class="property-grid" id="property-grid">
+        <div
+          class="property-card"
+          data-type="house"
+          data-bedrooms="4"
+          data-price="550000"
+          data-featured="true"
+        >
+          <div class="property-tag">Featured</div>
           <img
             src="https://public.youware.com/users-website-assets/prod/54c5bccf-883a-4cb5-8c1f-edf9c10dbbc4/g49d81ad8f3859bc10df016dce749ee4c87790b203f5107758216f169aa599debd2f4c233ab1dacb94d33eb0bfd1032084870f53f2e7f7aee98648d49790514f3_1280.jpg"
             alt="Property 1"
@@ -78,53 +132,14 @@
             </button>
           </div>
         </div>
-        <div id="modal1" class="modal">
-          <div class="modal-content">
-            <span class="close" onclick="closeModal('modal1')">&times;</span>
-            <img
-              src="https://public.youware.com/users-website-assets/prod/54c5bccf-883a-4cb5-8c1f-edf9c10dbbc4/g49d81ad8f3859bc10df016dce749ee4c87790b203f5107758216f169aa599debd2f4c233ab1dacb94d33eb0bfd1032084870f53f2e7f7aee98648d49790514f3_1280.jpg"
-              alt="Modern Family Home"
-              class="modal-image"
-            />
-            <div class="modal-details">
-              <h2>Modern Family Home</h2>
-              <p class="price">$550,000</p>
-
-              <div class="modal-features">
-                <div class="feature">
-                  <i class="fas fa-bed"></i>
-                  <p>4 Bedrooms</p>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-bath"></i>
-                  <p>3 Bathrooms</p>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-ruler-combined"></i>
-                  <p>2,500 sq ft</p>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-car"></i>
-                  <p>2 Car Garage</p>
-                </div>
-              </div>
-
-              <h3>Property Description</h3>
-              <p class="description">
-                This beautiful modern family home offers spacious living areas
-                with an open floor plan perfect for entertaining. The gourmet
-                kitchen features high-end appliances, granite countertops, and
-                custom cabinetry. The primary bedroom suite includes a luxury
-                bathroom with dual vanities and a walk-in closet.
-              </p>
-
-              <h3>Location</h3>
-              <p>123 Maple Street, Pleasantville, Anytown</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="property-card">
+        <div
+          class="property-card"
+          data-type="apartment"
+          data-bedrooms="2"
+          data-price="750000"
+          data-featured="true"
+        >
+          <div class="property-tag">Featured</div>
           <img
             src="https://public.youware.com/users-website-assets/prod/54c5bccf-883a-4cb5-8c1f-edf9c10dbbc4/ga3153a517746f9c71b82bbbaceedaf00bef4307aafe14486650cb5d3d0cd3c4973cc2801613f559b27c8192a3709e8e089e9d83ff5e4ef481a022e2b9b82420a_1280.jpg"
             alt="Property 2"
@@ -138,52 +153,13 @@
             </button>
           </div>
         </div>
-        <div id="modal2" class="modal">
-          <div class="modal-content">
-            <span class="close" onclick="closeModal('modal2')">&times;</span>
-            <img
-              src="https://public.youware.com/users-website-assets/prod/54c5bccf-883a-4cb5-8c1f-edf9c10dbbc4/ga3153a517746f9c71b82bbbaceedaf00bef4307aafe14486650cb5d3d0cd3c4973cc2801613f559b27c8192a3709e8e089e9d83ff5e4ef481a022e2b9b82420a_1280.jpg"
-              alt="Modern Family Home"
-              class="modal-image"
-            />
-            <div class="modal-details">
-              <h2>Luxury Downtown Apartment</h2>
-              <p class="price">$750,000</p>
-
-              <div class="modal-features">
-                <div class="feature">
-                  <i class="fas fa-bed"></i>
-                  <p>2 Bedrooms</p>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-bath"></i>
-                  <p>2 Bathrooms</p>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-ruler-combined"></i>
-                  <p>1800 sq ft</p>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-car"></i>
-                  <p>2 Car Garage</p>
-                </div>
-              </div>
-
-              <h3>Property Description</h3>
-              <p class="description">
-                This beautiful modern family home offers spacious living areas
-                with an open floor plan perfect for entertaining. The gourmet
-                kitchen features high-end appliances, granite countertops, and
-                custom cabinetry. The primary bedroom suite includes a luxury
-                bathroom with dual vanities and a walk-in closet.
-              </p>
-
-              <h3>Location</h3>
-              <p>123 Maple Street, Pleasantville, Anytown</p>
-            </div>
-          </div>
-        </div>
-        <div class="property-card">
+        <div
+          class="property-card"
+          data-type="house"
+          data-bedrooms="3"
+          data-price="420000"
+          data-featured="false"
+        >
           <img
             src="https://public.youware.com/users-website-assets/prod/54c5bccf-883a-4cb5-8c1f-edf9c10dbbc4/g6fab679d4c584a9acee277c20ab92677a6e5816a3f0c1bcbce796c2905ad6971ba1b8684a12475300cb9c0849dfbad5099ef91c88c882d9785d74d40aa52a7c8_1280.jpg"
             alt="Property 3"
@@ -197,46 +173,13 @@
             </button>
           </div>
         </div>
-        <div id="modal3" class="modal">
-          <div class="modal-content">
-            <span class="close" onclick="closeModal('modal3')">&times;</span>
-            <img
-              src="https://public.youware.com/users-website-assets/prod/54c5bccf-883a-4cb5-8c1f-edf9c10dbbc4/g6fab679d4c584a9acee277c20ab92677a6e5816a3f0c1bcbce796c2905ad6971ba1b8684a12475300cb9c0849dfbad5099ef91c88c882d9785d74d40aa52a7c8_1280.jpg"
-              alt="Modern Family Home"
-              class="modal-image"
-            />
-            <div class="modal-details">
-              <h2>Cozy Suburban House</h2>
-              <p class="price">$420,000</p>
-
-              <div class="modal-features">
-                <div class="feature">
-                  <i class="fas fa-bed"></i>
-                  <p>3 Bedrooms</p>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-bath"></i>
-                  <p>2 Bathrooms</p>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-ruler-combined"></i>
-                  <p>2,000 sq ft</p>
-                </div>
-              </div>
-
-              <h3>Property Description</h3>
-              <p class="description">
-                This beautiful modern family home offers spacious living areas
-                with an open floor plan perfect for entertaining. The gourmet
-                kitchen features high-end appliances, granite countertops, and
-                custom cabinetry. The primary bedroom suite includes a luxury
-                bathroom with dual vanities and a walk-in closet.
-              </p>
-
-              <h3>Location</h3>
-              <p>123 Maple Street, Pleasantville, Anytown</p>
-            </div>
-          </div>
+      </div>
+      <div id="no-results" style="display: none">
+        <div class="no-results-message">
+          <i class="fas fa-search"></i>
+          <h3>No properties match your search criteria</h3>
+          <p>Try adjusting your filters or search terms.</p>
+          <button id="reset-search" class="btn">Reset Search</button>
         </div>
       </div>
     </section>
@@ -253,7 +196,7 @@
       </div>
     </section>
 
-    <section id="services" class="container">
+    <section id="services" class="container, services">
       <h2>Our Services</h2>
       <div class="service-grid">
         <div class="service-card">
@@ -305,7 +248,7 @@
       </div>
     </section>
 
-    <section id="testimonials" class="container">
+    <section id="testimonials" class="container, testimonial">
       <h2>What Our Clients Say</h2>
       <div class="testimonial-grid">
         <div class="testimonial-card">
@@ -330,20 +273,56 @@
         <h2>Contact Us</h2>
         <div class="contact-grid">
           <div class="contact-form">
-            <form>
-              <input type="text" name="name" placeholder="Your Name" required />
+            <form id="contact-form">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+              />
               <input
                 type="email"
+                id="email"
                 name="email"
                 placeholder="Your Email"
                 required
               />
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Your Phone Number"
+              />
+              <select id="inquiry-type" name="inquiry-type" required>
+                <option value="">Select Inquiry Type</option>
+                <option value="buying">Buying a Property</option>
+                <option value="selling">Selling a Property</option>
+                <option value="renting">Renting a Property</option>
+                <option value="other">Other Inquiry</option>
+              </select>
               <textarea
+                id="message"
                 name="message"
                 placeholder="Your Message"
                 required
               ></textarea>
-              <button type="submit" class="btn">Send Message</button>
+              <div class="form-success" id="form-success" style="display: none">
+                <i class="fas fa-check-circle"></i>
+                <p>
+                  Thank you! Your message has been received. We'll get back to
+                  you shortly.
+                </p>
+              </div>
+              <div class="form-error" id="form-error" style="display: none">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>
+                  There was an error submitting your form. Please try again.
+                </p>
+              </div>
+              <button type="submit" id="submit-btn" class="btn">
+                Send Message
+              </button>
             </form>
           </div>
           <div class="contact-details">
@@ -352,10 +331,159 @@
             </p>
             <p><i class="fas fa-phone"></i> 1-800-555-1234</p>
             <p><i class="fas fa-envelope"></i> contact@primeestate.com</p>
+            <div class="map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.219495494447!2d-73.985664884593!3d40.7484409793284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1672533052688!5m2!1sen!2sus"
+                width="100%"
+                height="250"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Property Modals -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <img
+          src="https://public.youware.com/users-website-assets/prod/54c5bccf-883a-4cb5-8c1f-edf9c10dbbc4/g49d81ad8f3859bc10df016dce749ee4c87790b203f5107758216f169aa599debd2f4c233ab1dacb94d33eb0bfd1032084870f53f2e7f7aee98648d49790514f3_1280.jpg"
+          alt="Modern Family Home"
+          class="modal-image"
+        />
+        <div class="modal-details">
+          <h2>Modern Family Home</h2>
+          <p class="price">$550,000</p>
+
+          <div class="modal-features">
+            <div class="feature">
+              <i class="fas fa-bed"></i>
+              <p>4 Bedrooms</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-bath"></i>
+              <p>3 Bathrooms</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-ruler-combined"></i>
+              <p>2,500 sq ft</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-car"></i>
+              <p>2 Car Garage</p>
+            </div>
+          </div>
+
+          <h3>Property Description</h3>
+          <p class="description">
+            This beautiful modern family home offers spacious living areas with
+            an open floor plan perfect for entertaining. The gourmet kitchen
+            features high-end appliances, granite countertops, and custom
+            cabinetry. The primary bedroom suite includes a luxury bathroom with
+            dual vanities and a walk-in closet.
+          </p>
+
+          <h3>Location</h3>
+          <p>123 Maple Street, Pleasantville, Anytown</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <img
+          src="https://public.youware.com/users-website-assets/prod/54c5bccf-883a-4cb5-8c1f-edf9c10dbbc4/ga3153a517746f9c71b82bbbaceedaf00bef4307aafe14486650cb5d3d0cd3c4973cc2801613f559b27c8192a3709e8e089e9d83ff5e4ef481a022e2b9b82420a_1280.jpg"
+          alt="Luxury Downtown Apartment"
+          class="modal-image"
+        />
+        <div class="modal-details">
+          <h2>Luxury Downtown Apartment</h2>
+          <p class="price">$750,000</p>
+
+          <div class="modal-features">
+            <div class="feature">
+              <i class="fas fa-bed"></i>
+              <p>2 Bedrooms</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-bath"></i>
+              <p>2 Bathrooms</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-ruler-combined"></i>
+              <p>1,800 sq ft</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-building"></i>
+              <p>24/7 Concierge</p>
+            </div>
+          </div>
+
+          <h3>Property Description</h3>
+          <p class="description">
+            Luxurious downtown apartment with breathtaking city views. This
+            stunning urban retreat features floor-to-ceiling windows, designer
+            finishes, and an open concept layout. Building amenities include a
+            rooftop pool, fitness center, and 24-hour concierge service.
+          </p>
+
+          <h3>Location</h3>
+          <p>456 Metropolitan Avenue, Downtown, Anytown</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <img
+          src="https://public.youware.com/users-website-assets/prod/54c5bccf-883a-4cb5-8c1f-edf9c10dbbc4/g6fab679d4c584a9acee277c20ab92677a6e5816a3f0c1bcbce796c2905ad6971ba1b8684a12475300cb9c0849dfbad5099ef91c88c882d9785d74d40aa52a7c8_1280.jpg"
+          alt="Cozy Suburban House"
+          class="modal-image"
+        />
+        <div class="modal-details">
+          <h2>Cozy Suburban House</h2>
+          <p class="price">$420,000</p>
+
+          <div class="modal-features">
+            <div class="feature">
+              <i class="fas fa-bed"></i>
+              <p>3 Bedrooms</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-bath"></i>
+              <p>2 Bathrooms</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-ruler-combined"></i>
+              <p>2,000 sq ft</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-tree"></i>
+              <p>Large Backyard</p>
+            </div>
+          </div>
+
+          <h3>Property Description</h3>
+          <p class="description">
+            Charming suburban home in a peaceful neighborhood. This lovely
+            property features an updated kitchen with stainless steel
+            appliances, a spacious living room with a fireplace, and bright,
+            airy bedrooms. The backyard includes a covered patio perfect for
+            outdoor entertaining.
+          </p>
+
+          <h3>Location</h3>
+          <p>789 Oak Drive, Pleasantville, Anytown</p>
+        </div>
+      </div>
+    </div>
 
     <footer>
       <div class="container">
@@ -374,6 +502,6 @@
       </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>
